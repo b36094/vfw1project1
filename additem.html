@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+
+<!-- Name: Andrei Birsan -->
+<!-- Class: Visual Frameworks 1 -->
+<!-- Date: 2/7/2013 -->
 <html>
 
 <head>
@@ -52,11 +56,33 @@
 						<option value = "Other">Other</option></option>					
 					</optgroup>
 				</select>
-		
+				
+				<!--Input Fields Start here -->
+				<ul>
+					<li><label>Name:</label><input type = "text" name = "nameItem" class = "indexInput"></li>
+					<li><label>Genre:</label><input type = "text" name = "genreItem" class = "indexInput"></li>
+					<li><label>Publication Date:</label><input type = "text" name = "pubDate" class = "indexInput"></li>
+					<li><label>Length (minutes):</label><input type = "text" name = "length" class = "indexInput"></li>
+					<li><label>Date of Purchase:</label><input type = "date" name = "datePurchase" class = "indexInput"></li>
+				</ul>
+				<label for = "favCheck">Favorite Item:</label>	
+				<input type = "checkbox" id = "favCheck">			
+				<ul>
+					<li><label>Does the item have a backup copy?</label>
+						<ul>
+							<li><input type = "radio" name = "securityCopy" /><label>Yes</label></li>
+							<li><input type = "radio" name = "securityCopy" /><label>No</label></li>
+						</ul>
+				
+					<li><label for = "dragBar">Next Revision:</label><input type="range" min="0" max="10" value="4" step="2" /></li>
+					<li><label>Additional Notes:</label><textarea id = "notes"></textarea></li>
+					<li><input type = "hidden" value = "false"/></li>			
+				</ul>				
 			</fieldset>
-		
+			<input type = "submit" value = "Add Entry"/>
 		</form>
-		
+		<a href = "#">Clear Input Data</a>
+		<a href = "#">Display Data</a>
 	
 	</div>
 	
