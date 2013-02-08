@@ -21,15 +21,15 @@
 
 <body>
 
-<header>
-
-	<h1>Home Media Library</h1>
-
-</header>
+	<header>
+	
+		<h1>Home Media Library</h1>
+	
+	</header>
 
 	<div id = "appWrap">
 		
-		<form>
+		<form action = "" method = "post">
 			
 			<fieldset> <!-- Border around the form -->
 				
@@ -59,11 +59,11 @@
 				
 				<!--Input Fields Start here -->
 				<ul>
-					<li><label>Name:</label><input type = "text" name = "nameItem" class = "indexInput" placeholder = "Total Recall"></li>
-					<li><label>Genre:</label><input type = "text" name = "genreItem" class = "indexInput" placeholder = "Comedy"></li>
-					<li><label>Publication Date:</label><input type = "date" name = "pubDate" class = "indexInput"></li>
-					<li><label>Length (minutes):</label><input type = "text" name = "length" class = "indexInput" placeholder = "120"></li>
-					<li><label>Date of Purchase:</label><input type = "date" name = "datePurchase" class = "indexInput"></li>
+					<li><label for = "nameItem">Name:</label><input type = "text" id = "nameItem" placeholder = "Total Recall"></li>
+					<li><label for = "genreItem">Genre:</label><input type = "text" id = "genreItem" placeholder = "Comedy"></li>
+					<li><label for = "pubDate">Publication Date:</label><input type = "date" id = "pubDate"</li>
+					<li><label for = "lengthItem">Length (minutes):</label><input type = "text" id = "lengthItem" placeholder = "120"></li>
+					<li><label for = "datePurchase">Date of Purchase:</label><input type = "date" id = "datePurchase" ></li>
 				</ul>
 				<label for = "favCheck">Favorite Item:</label>	
 				<input type = "checkbox" id = "favCheck">			
@@ -73,9 +73,9 @@
 							<li><input type = "radio" name = "securityCopy" /><label>Yes</label></li>
 							<li><input type = "radio" name = "securityCopy" /><label>No</label></li>
 						</ul>
-				
-					<li><label for = "dragBar">Next Revision:</label><input type="range" min="0" max="10" value="4" step="2" /></li>
-					<li><label>Additional Notes:</label><textarea id = "notes"></textarea></li>
+					</li>
+					<li><label for = "slider">Next Revision:</label><input type="range" id = "slider" min="0" max="10" value="4" step="2" /></li>
+					<li><label for = "notes">Additional Notes:</label><textarea id = "notes"></textarea></li>
 					<li><input type = "hidden" value = "false"/></li>			
 				</ul>				
 			</fieldset>
