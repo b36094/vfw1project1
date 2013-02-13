@@ -33,13 +33,14 @@
 	</header>
 
 	<div id = "appWrap">
-		
+		<span id = "clearInput"><a href = "#">Clear Form</a></span>
+		<span id = "displayData"><a href = "#">Display Data</a></span>
 		<form action = "" method = "post">
 			
 			<fieldset> <!-- Border around the form -->
 				
 				<legend>Personalize Entry: </legend>
-				<label for = "mediaType">Choose Media Type: </label>
+				<label for = "mediaType" id = "mediaTypeId">Choose Media Type: </label>
 				<select id = "mediaType">
 					
 					<optgroup label = "Video">
@@ -61,33 +62,33 @@
 						<option value = "Other">Other</option></option>					
 					</optgroup>
 				</select>
-				
+				<hr id = "addItemLine1">
 				<!--Input Fields Start here -->
 				<ul>
 					<li><label for = "nameItem">Name:</label><input type = "text" id = "nameItem" placeholder = "Total Recall"></li>
 					<li><label for = "genreItem">Genre:</label><input type = "text" id = "genreItem" placeholder = "Comedy"></li>
+					<li><label for = "lengthItem">Length (minutes):</label><input type = "text" id = "lengthItem" placeholder = "120 minutes"></li>
 					<li><label for = "pubDate">Publication Date:</label><input type = "date" id = "pubDate"</li>
-					<li><label for = "lengthItem">Length (minutes):</label><input type = "text" id = "lengthItem" placeholder = "120"></li>
-					<li><label for = "datePurchase">Date of Purchase:</label><input type = "date" id = "datePurchase" ></li>
+					<li><label for = "datePurchase">Purchase Date:</label><input type = "date" id = "datePurchase" ></li>
 				</ul>
-				<label for = "favCheck">Favorite Item:</label>	
+				<hr id = "addItemLine2">
+				<label for = "favCheck" id = "favCheckLabel">Favorite Item:</label>	
 				<input type = "checkbox" id = "favCheck">			
 				<ul>
 					<li><label>Does the item have a backup copy?</label>
 						<ul>
-							<li><input type = "radio" name = "securityCopy" /><label>Yes</label></li>
-							<li><input type = "radio" name = "securityCopy" /><label>No</label></li>
+							<li><input type = "radio" name = "securityCopy" id = "radioYes"/><label for = "radioYes">Yes</label></li>
+							<li><input type = "radio" name = "securityCopy" id = "radioNo"/><label for = "radioNo">No</label></li>
 						</ul>
 					</li>
 					<li><label for = "slider">Next Revision:</label><input type="range" id = "slider" min="0" max="10" value="4" step="2" /></li>
-					<li><label for = "notes">Additional Notes:</label><textarea id = "notes"></textarea></li>
+					<li><label for = "notes" id = "notesLabel">Additional Notes:</label><textarea id = "notes"></textarea></li>
 					<li><input type = "hidden" value = "false"/></li>			
 				</ul>				
 			</fieldset>
 			<input type = "submit" value = "Add Entry"/>
 		</form>
-		<a href = "#">Clear Input Data</a>
-		<a href = "#">Display Data</a>
+		
 	
 	</div>
 	

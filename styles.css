@@ -1,16 +1,11 @@
 
 /*================================ Index CSS goes here ===============================*/
-#indexH1 {
+h1 {
 	font-family:Arial, sans-serif;
 	font-size:1.6em;	
 	text-align: center;
 	color:white;
 	background-color:#9B9EB3;
-	
-
-
-	
-
 }
 #indexP1 {
 	font-family:Arial, sans-serif;
@@ -19,8 +14,6 @@
 	text-align:left;
 	text-indent:10%;
 	color:black;
-	
-	
 }
 #indexH2 {
 	font-family:Arial, sans-serif;
@@ -36,3 +29,70 @@
 	color:blue;	
 	font-family:Arial, sans-serif;
 }
+/*==============================additem.html Css goes here=============================*/
+#clearInput {
+	position:relative;
+	font-family:Arial, sans-serif;
+	font-size:0.900em;
+}
+#displayData {
+	float:right;
+	font-family:Arial, sans-serif;
+	font-size:0.900em;
+}
+legend {
+	font-family:Arial, sans-serif;
+	font-size:0.900em;
+	font-style:italic;
+}
+li {
+	list-style-type: none;
+	font-family:Arial, sans-serif;
+	font-size:0.900em;
+}
+#mediaTypeId {
+	margin-left: 40px;
+	font-family:Arial, sans-serif;
+	font-size:0.900em;
+	font-weight:bold;
+}
+#mediaType {
+	margin-left: 45px;
+	margin-bottom:10px;	
+}
+#nameItem {
+	display:block;
+	margin-bottom:15px;
+}
+#genreItem {
+	display:block;
+	margin-bottom:15px;
+}
+#pubDate {
+	display:block;
+	margin-bottom:15px;	
+}	
+#lengthItem {
+	display:block;
+	margin-bottom:15px;	
+}
+#datePurchase {
+	display:block;
+	margin-bottom:15px;	
+}
+#favCheckLabel {
+	margin-left:40px;
+	font-family:Arial, sans-serif;
+	font-size:0.900em;
+}
+#slider {
+	margin-left: 15px;
+	margin-top:15px;
+	margin-bottom:25px;	
+}
+#notes {
+	display:block;	
+}
+	
+	
+	
