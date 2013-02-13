@@ -45,13 +45,36 @@ var getElement = function(element) {
 		optGroupMenu.innerHTML = optGroupNames;
 		selectMenu.appendChild(optGroupMenu);
 		
-		for (var ii = 0, jj = videoGroupList.length; ii <= jj; ii++) {
-			var videoMenu = document.createElement("option");
-			var videoGroupNames = videoGroupList[ii];
-			videoMenu.setAttribute("value",videoGroupNames);
-			videoMenu.innerHTML = videoGroupList[ii];
-			optGroupMenu.appendChild(videoMenu);
+		if(optGroupList[i] === "Video"){
 		
+			for (var ii = 0, jj = videoGroupList.length; ii < jj; ii++) {
+				var videoMenu = document.createElement("option");
+				var videoGroupNames = videoGroupList[ii];
+				videoMenu.setAttribute("value",videoGroupNames);
+				videoMenu.innerHTML = videoGroupList[ii];
+				optGroupMenu.appendChild(videoMenu);
+			}
+		}
+		
+		else if(optGroupList[i] === "Audio"){
+		
+			for (var ii = 0, jj = audioGroupList.length; ii < jj; ii++) {
+				var audioMenu = document.createElement("option");
+				var audioGroupNames = audioGroupList[ii];
+				audioMenu.setAttribute("value",audioGroupNames);
+				audioMenu.innerHTML = audioGroupList[ii];
+				optGroupMenu.appendChild(audioMenu);
+			}
+		}
+		
+		else{
+			for (var ii = 0, jj = dataGroupList.length; ii < jj; ii++) {
+				var dataMenu = document.createElement("option");
+				var dataGroupNames = dataGroupList[ii];
+				dataMenu.setAttribute("value",dataGroupNames);
+				dataMenu.innerHTML = dataGroupList[ii];
+				optGroupMenu.appendChild(dataMenu);
+			}
 		}
 		
 		
