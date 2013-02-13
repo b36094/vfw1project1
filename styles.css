@@ -1,2 +1,38 @@
-<!DOCTYPE html> 
 
+/*================================ Index CSS goes here ===============================*/
+#indexH1 {
+	font-family:Arial, sans-serif;
+	font-size:1.6em;	
+	text-align: center;
+	color:white;
+	background-color:#9B9EB3;
+	
+
+
+	
+
+}
+#indexP1 {
+	font-family:Arial, sans-serif;
+	font-size:0.9em;
+	font-weight:bold;	
+	text-align:left;
+	text-indent:10%;
+	color:black;
+	
+	
+}
+#indexH2 {
+	font-family:Arial, sans-serif;
+	font-size:1.1em;	
+	text-align: left;
+	color:#9B9EB3;
+	margin-top:7%;
+	margin-left:10%;
+}
+#indexButton {
+	margin-left:10%;	
+	text-align:center;
+	color:blue;	
+	font-family:Arial, sans-serif;
+}
