@@ -43,7 +43,7 @@
 				<label for = "mediaType" id = "mediaTypeId">Choose Media Type: </label>
 				<select id = "mediaType">
 					
-					<!--<optgroup label = "Video">
+					<optgroup label = "Video">
 						<option value = "Vide Dvd">Video Dvd</option>
 						<option value = "Video Cd">Video Cd</option>
 						<option value = "Video Tape">Video Tape</option>
@@ -60,7 +60,7 @@
 						<option value = "Data Cd">Data Cd</option>					
 						<option value = "Memory Stick">Memory Stick</option>					
 						<option value = "Other">Other</option></option>					
-					</optgroup>-->
+					</optgroup>
 				</select>
 				<hr id = "addItemLine1">
 				<!--Input Fields Start Here -->
