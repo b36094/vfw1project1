@@ -35,7 +35,7 @@
 	<div id = "appWrap">
 		<span id = "clearInput"><a href = "#">Clear Form</a></span>
 		<span id = "displayData"><a href = "#">Display Data</a></span>
-		<span id = "addNewEntry" style = "display:none;"><a href = "#">Add New Entry</a></span>
+		<span id = "addNewEntry" style = "display:none;"><a href = "additem.html">Add New Entry</a></span>
 		<form action = "" method = "post" id = "firstForm">
 			
 			<fieldset> <!-- Border around the form -->
@@ -59,7 +59,7 @@
 					<li><label>Does the item have a backup copy?</label>
 						<ul>
 							<li><input type = "radio" name = "securityCopy" id = "radioYes"/><label for = "radioYes">Yes</label></li>
-							<li><input type = "radio" name = "securityCopy" id = "radioNo"/><label for = "radioNo">No</label></li>
+							<li><input type = "radio" name = "securityCopy" id = "radioNo" checked /><label for = "radioNo">No</label></li>
 						</ul>
 					</li>
 					<li><label for = "slider">Next Revision:</label><input type="range" id = "slider" min="0" max="10" value="4" step="2" /></li>
