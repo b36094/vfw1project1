@@ -137,8 +137,36 @@ function storeData() {
 	alert ("Item Saved!");
 }
 
+//function controlMenu
+function controlMenu(a) {
+	switch(a) {
+		case "on":
+			getElement('firstForm').style.display = "none";
+			getElement('clearInput').style.display = "inline";	
+			getElement('displayData').style.display = "none";
+			getElement('addNewEntry').style.display = "inline";		
+			break;
+			
+		case "off":
+			getElement('firstForm').style.display = "block";
+			getElement('clearInput').style.display = "inline";	
+			getElement('displayData').style.display = "inline";
+			getElement('addNewEntry').style.display = "none";
+			getElement('dataCont').style.display = "none";
+			break;
+			
+		default:
+
+			return false;		
+			
+	}
+}
+
 //function getData
 function getData() {
+	//call function controlMenu
+	controlMenu("on");	
+	
 	//Write Data Back to the browser 
 	var newDiv = document.createElement('div');	
 	newDiv.setAttribute("id", "dataCont");
@@ -147,6 +175,9 @@ function getData() {
 	
 	//append div to the document
 	document.body.appendChild(newDiv);
+	
+	getElement('dataCont').style.display = "block";
+	
 	//get the data in the localStorage
 	for (var i = 0, j = localStorage.length; i < j; i++) {
 		
@@ -172,7 +203,7 @@ function getData() {
 //display-link goes here
 var displayLink = getElement("displayData");
 displayLink.addEventListener("click", getData);
-console.log(displayLink);
+
 
 //clear data link goes here
 //var clearData = getElement("clearInput");
