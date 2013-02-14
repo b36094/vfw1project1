@@ -40,6 +40,12 @@ h1 {
 	font-family:Arial, sans-serif;
 	font-size:0.900em;
 }
+#addNewEntry {
+	float:right;
+	font-family:Arial, sans-serif;
+	font-size:0.900em;
+	display:none;	
+}
 legend {
 	font-family:Arial, sans-serif;
 	font-size:0.900em;
@@ -96,5 +102,3 @@ li {
 #submitButton {
 	margin-top: 15px;	
 }
-	
-	

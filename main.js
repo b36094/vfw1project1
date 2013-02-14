@@ -167,6 +167,11 @@ function getData() {
 	//call function controlMenu
 	controlMenu("on");	
 	
+	if (localStorage.length === 0) {
+		alert("There is no data in the Local Storage.");
+		window.location = "additem.html";	
+	}	
+	
 	//Write Data Back to the browser 
 	var newDiv = document.createElement('div');	
 	newDiv.setAttribute("id", "dataCont");
@@ -187,7 +192,10 @@ function getData() {
 		var newValue = localStorage.getItem(newKey);	
 		var newObj = JSON.parse(newValue);
 		var newSubUl = document.createElement('ul');
+		newSubUl.setAttribute("id", "dynamicLi");
+		newSubUl.setAttribute("style", "margin-top: 20px;")
 		newLi.appendChild(newSubUl);
+		
 		
 		for (var o in newObj) {
 			
@@ -200,14 +208,28 @@ function getData() {
 	}
 }
 
+//function clearLocal
+function clearLocal() {
+	var lengthLocalSt = localStorage.length;
+	if (lengthLocalSt === 0){
+		alert("There is no data in the Local Storage.");	
+	}	
+	else {
+		
+		localStorage.clear();
+		alert("All entries are deleted.");
+		window.location	= "additem.html";
+		return false;	
+	}
+}
+
 //display-link goes here
 var displayLink = getElement("displayData");
 displayLink.addEventListener("click", getData);
 
-
 //clear data link goes here
-//var clearData = getElement("clearInput");
-//clearData.addEventListener("click", clearLocal);
+var clearData = getElement("clearInput");
+clearData.addEventListener("click", clearLocal);
 
 //submit-button goes here
 var submitButton = getElement("submitButton");
