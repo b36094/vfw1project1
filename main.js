@@ -127,6 +127,7 @@ function storeData() {
 	item.purchaseDate 	= 		["Purchase Date: ", getElement("purchaseDate").value];
 	item.favOpt 			= 		["Is it a favorite item ?", favCheck]; 
 	item.bkCopy 			= 		["Does the item have a back-up copy ?", radioChecked];
+	item.slideRange		=		["Next Revision (in months): ", getElement("slider").value]
 	item.notes 				= 		["Notes: ", getElement("notes").value];
 	
 	//store into localStore
@@ -136,13 +137,46 @@ function storeData() {
 	alert ("Item Saved!");
 }
 
-/*display-link goes here
-var displayLink = getElement("displayData");
-displayLink.addEventListener("click", "getData");
+//function getData
+function getData() {
+	//Write Data Back to the browser 
+	var newDiv = document.createElement('div');	
+	newDiv.setAttribute("id", "dataCont");
+	var newUl = document.createElement('ul');
+	newDiv.appendChild(newUl);
+	
+	//append div to the document
+	document.body.appendChild(newDiv);
+	//get the data in the localStorage
+	for (var i = 0, j = localStorage.length; i < j; i++) {
+		
+		var newLi = document.createElement('li');
+		newUl.appendChild(newLi);
+		var newKey = localStorage.key(i);
+		var newValue = localStorage.getItem(newKey);	
+		var newObj = JSON.parse(newValue);
+		var newSubUl = document.createElement('ul');
+		newLi.appendChild(newSubUl);
+		
+		for (var o in newObj) {
+			
+			var newSubLi = document.createElement('li');
+			newSubUl.appendChild(newSubLi);
+			var newSubText = newObj[o][0] + " " + newObj[o][1];
+			newSubLi.innerHTML = newSubText;	
+		}
+		
+	}
+}
 
-clear data link goes here
-var clearData = getElement("clearInput");
-clearData.addEventListener("click", "clearLocal");*/
+//display-link goes here
+var displayLink = getElement("displayData");
+displayLink.addEventListener("click", getData);
+console.log(displayLink);
+
+//clear data link goes here
+//var clearData = getElement("clearInput");
+//clearData.addEventListener("click", clearLocal);
 
 //submit-button goes here
 var submitButton = getElement("submitButton");
