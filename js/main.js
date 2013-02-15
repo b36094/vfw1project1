@@ -6,7 +6,7 @@
 
 //global variables
 var radioChecked,	
-	 favCheck = "No";
+	 favCheck;
 
 //function getting an element
 var getElement = function(element) {
