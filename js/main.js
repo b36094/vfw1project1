@@ -85,7 +85,8 @@ addMenu();
 //function checkRadio
 function checkRadio() {
 	
-	var radioButtons = document.getElementById("firstForm");
+	var radioButtons = document.getElementById("firstForm").securityCopy;
+	console.log(radioButtons);
 	for (var i = 0, j = radioButtons.length; i < j; i++) {
 		
 		if (radioButtons[i].checked) {
@@ -108,20 +109,18 @@ function checkBox() {
 
 //function storeData
 function storeData() {
-
 	//call function checkRadio
 	checkRadio();
 	
 	//call function checkBox
 	checkBox();
-	
 	//randomize id	
 	var id = Math.floor(Math.random() * 10000001)
 	var item = {};
 	
 	item.dropMenu 			= 		["Item Type: ", getElement("mediaType").value];
 	item.nameItem 			= 		["Name: ", getElement("nameItem").value];
-	item.genreItem 		= 		["Genre: ", getElement("genreItem").value];
+	item.genreItem 		= 		["Genre/Type: ", getElement("genreItem").value];
 	item.lengthItem 		= 		["Length: ", getElement("lengthItem").value];
 	item.pubDate			=	 	["Release Date: ", getElement("pubDate").value];
 	item.purchaseDate 	= 		["Purchase Date: ", getElement("purchaseDate").value];
@@ -195,8 +194,7 @@ function getData() {
 		newSubUl.setAttribute("id", "dynamicLi");
 		newSubUl.setAttribute("style", "margin-top: 20px;")
 		newLi.appendChild(newSubUl);
-		
-		
+				
 		for (var o in newObj) {
 			
 			var newSubLi = document.createElement('li');
@@ -235,4 +233,4 @@ clearData.addEventListener("click", clearLocal);
 var submitButton = getElement("submitButton");
 submitButton.addEventListener("click", storeData); 
 	
-console.log(localStorage);
+//console.log(localStorage);
