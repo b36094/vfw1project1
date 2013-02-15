@@ -1,22 +1,22 @@
-
+body {
+	font-family:Arial, sans-serif;
+	font-size:0.9em;
+}
 /*================================ Index CSS goes here ===============================*/
 h1 {
-	font-family:Arial, sans-serif;
+	
 	font-size:1.6em;	
 	text-align: center;
 	color:white;
 	background-color:#9B9EB3;
 }
 #indexP1 {
-	font-family:Arial, sans-serif;
-	font-size:0.9em;
 	font-weight:bold;	
 	text-align:left;
 	text-indent:10%;
 	color:black;
 }
 #indexH2 {
-	font-family:Arial, sans-serif;
 	font-size:1.1em;	
 	text-align: left;
 	color:#9B9EB3;
@@ -27,39 +27,26 @@ h1 {
 	margin-left:10%;	
 	text-align:center;
 	color:blue;	
-	font-family:Arial, sans-serif;
 }
 /*==============================additem.html Css goes here=============================*/
 #clearInput {
 	position:relative;
-	font-family:Arial, sans-serif;
-	font-size:0.900em;
 }
 #displayData {
 	float:right;
-	font-family:Arial, sans-serif;
-	font-size:0.900em;
 }
 #addNewEntry {
 	float:right;
-	font-family:Arial, sans-serif;
-	font-size:0.900em;
 	display:none;	
 }
 legend {
-	font-family:Arial, sans-serif;
-	font-size:0.900em;
 	font-style:italic;
 }
 li {
 	list-style-type: none;
-	font-family:Arial, sans-serif;
-	font-size:0.900em;
 }
 #mediaTypeId {
 	margin-left: 40px;
-	font-family:Arial, sans-serif;
-	font-size:0.900em;
 	font-weight:bold;
 }
 #mediaType {
@@ -88,8 +75,6 @@ li {
 }
 #favCheckLabel {
 	margin-left:40px;
-	font-family:Arial, sans-serif;
-	font-size:0.900em;
 }
 #slider {
 	margin-left: 15px;
