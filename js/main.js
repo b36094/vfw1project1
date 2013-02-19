@@ -1,7 +1,7 @@
 // Name: Andrei Birsan
 // Class Name: Visual Frame Works
 // Date: 2/13/2013
-// Project 2
+// Project 3
 
 
 //global variables
@@ -184,7 +184,7 @@ function getData() {
 	
 	//get the data in the localStorage
 	for (var i = 0, j = localStorage.length; i < j; i++) {
-		
+		var newLink = document.createElement('li');
 		var newLi = document.createElement('li');
 		newUl.appendChild(newLi);
 		var newKey = localStorage.key(i);
@@ -200,12 +200,71 @@ function getData() {
 			var newSubLi = document.createElement('li');
 			newSubUl.appendChild(newSubLi);
 			var newSubText = newObj[o][0] + " " + newObj[o][1];
-			newSubLi.innerHTML = newSubText;	
+			newSubLi.innerHTML = newSubText;
+			newSubUl.appendChild(newLink);	
 		}
 		
+		//call makeCtrlLinks function
+		makeCtrlLinks(localStorage.key(i), newLink);
 	}
 }
 
+//function makeCtrlLinks
+function makeCtrlLinks(key, newLink) {
+	//edit Entry link goes here	
+	var editLink = document.createElement('a');
+	editLink.href = "#";
+	editLink.key = key;
+	var editLinkText = "Edit Entry";
+	editLink.addEventListener("click", editEntry);
+	editLink.innerHTML = editLinkText;
+	newLink.appendChild(editLink);
+	
+	//delete Entry link goes here	
+	var deleteLink = document.createElement('a');
+	deleteLink.href = "#";
+	deleteLink.key = key;
+	deleteLink.style.marginLeft = "20px";
+	
+	
+	var deleteLinkText = "Delete Entry";
+	//deleteLink.addEventListener("click", deleteEntry);
+	deleteLink.innerHTML = deleteLinkText;
+	newLink.appendChild(deleteLink);
+}
+
+//function editEntry goes here
+function editEntry() {
+	var objValue = localStorage.getItem(this.key);
+	var tempObj = JSON.parse(objValue);
+
+	//obviate form
+	controlMenu("off");
+
+	//re-populate the form with the new extraction	
+	getElement("mediaType").value = tempObj.dropMenu[1];
+	getElement("nameItem").value = tempObj.nameItem[1];	
+	getElement("genreItem").value = tempObj.genreItem[1];	
+	getElement("lengthItem").value = tempObj.lengthItem[1];	
+	getElement("pubDate").value = tempObj.pubDate[1];	
+	getElement("purchaseDate").value = tempObj.purchaseDate[1];	
+	var tempRadios = document.forms[0].securityCopy;	
+	for(var i = 0, j = tempRadios.length; i < j; i++) {
+		
+		if(tempRadios[i].value === "Yes" && tempObj.bkCopy[i] === "Yes") {
+			tempRadios[i].setAttribute("checked", "checked");		
+		}
+		else if(tempRadios[i].value === "No" && tempObj.bkCopy[i] === "No") {
+			tempRadios[i].setAttribute("checked", "checked");	
+		}
+	}
+
+	if (tempObj.favOpt[1] === "Yes") {
+		getElement("favCheck").setAttribute("checked", "checked");
+	}
+	getElement("slider").value = tempObj.slideRange[1];	
+	getElement("notes").value = tempObj.notes[1];
+}
 //function clearLocal
 function clearLocal() {
 	var lengthLocalSt = localStorage.length;
