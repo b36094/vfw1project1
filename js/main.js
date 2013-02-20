@@ -107,16 +107,22 @@ function checkBox() {
 }
 
 //function storeData
-function storeData() {
+function storeData(key) {
+	if (!key) {
+		//randomize id			
+		var id = Math.floor(Math.random() * 10000001);
+	}
+	else {
+		id = key;	
+	}
 	//call function checkRadio
 	checkRadio();
 	
 	//call function checkBox
 	checkBox();
-	//randomize id	
-	var id = Math.floor(Math.random() * 10000001)
-	var item = {};
 	
+	
+	var item 				= 		{};
 	item.dropMenu 			= 		["Item Type: ", getElement("mediaType").value];
 	item.nameItem 			= 		["Name: ", getElement("nameItem").value];
 	item.genreItem 		= 		["Genre/Type: ", getElement("genreItem").value];
@@ -201,6 +207,7 @@ function getData() {
 			var newSubText = newObj[o][0] + " " + newObj[o][1];
 			newSubLi.innerHTML = newSubText;
 			newSubUl.appendChild(newLink);	
+			
 		}
 		
 		//call makeCtrlLinks function
@@ -235,7 +242,7 @@ function makeCtrlLinks(key, newLink) {
 function editEntry() {
 	var objValue = localStorage.getItem(this.key);
 	var tempObj = JSON.parse(objValue);
-
+	console.log(objValue);
 	//show form
 	controlMenu("off");
 
@@ -286,7 +293,17 @@ function editEntry() {
 
 function deleteEntry() {
 	
-	//stuff goes here
+	var cAsk = confirm("Should I delete this entry?");
+	if (cAsk) {
+		localStorage.removeItem(this.key);
+		window.location.reload();
+		alert("Entry was deleted!");	
+	}
+
+	else {
+		
+		alert("Entry was NOT deleted.");	
+	}
 }
 
 //function formValidate
@@ -331,7 +348,7 @@ function formValidate(e) {
 	}
 	
 	else {
-		storeData();	
+		storeData(this.key);	
 	}
 
 }
