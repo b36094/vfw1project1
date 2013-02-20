@@ -297,7 +297,7 @@ function deleteEntry() {
 	if (cAsk) {
 		localStorage.removeItem(this.key);
 		window.location.reload();
-		alert("Entry was deleted!");	
+		
 	}
 
 	else {
