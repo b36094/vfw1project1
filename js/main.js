@@ -4,9 +4,8 @@
 // Project 3
 
 
-//global variables
-var radioChecked,	
-	 favCheck;
+
+
 
 //function getting an element
 var getElement = function(element) {
@@ -27,8 +26,7 @@ function addMenu() {
 	
 	//append to the select
 	whereSelect.appendChild(selectMenu);	
-	console.log(whereSelect);	
-	
+	//console.log(whereSelect);	
 	//array with optGroup names
 	var optGroupList = ["Video", "Audio", "Data"];
 	//array with videoGroupList
@@ -36,7 +34,8 @@ function addMenu() {
 	//array with audioGroupList
 	var audioGroupList = ["Audio Cd", "Audio Tape", "Audio Record"];
 	//array with dataGroupList
-	var dataGroupList = ["Data Dvd", "Data Cd", "Memory Stick", "Other"];		
+	var dataGroupList = ["Data Dvd", "Data Cd", "Memory Stick", "Other"];	
+
 		for (var i = 0, j = optGroupList.length; i < j; i++) {
 			var optGroupMenu = document.createElement("optgroup");
 			var optGroupNames = optGroupList[i];
@@ -168,9 +167,9 @@ function getData() {
 	
 	if (localStorage.length === 0) {
 		alert("There is no data in the Local Storage.");
-		window.location = "additem.html";	
+		//window.location = "additem.html";	
+		window.location.reload();
 	}	
-	
 	//Write Data Back to the browser 
 	var newDiv = document.createElement('div');	
 	newDiv.setAttribute("id", "dataCont");
@@ -211,6 +210,7 @@ function getData() {
 
 //function makeCtrlLinks
 function makeCtrlLinks(key, newLink) {
+	
 	//edit Entry link goes here	
 	var editLink = document.createElement('a');
 	editLink.href = "#";
@@ -225,10 +225,8 @@ function makeCtrlLinks(key, newLink) {
 	deleteLink.href = "#";
 	deleteLink.key = key;
 	deleteLink.style.marginLeft = "20px";
-	
-	
 	var deleteLinkText = "Delete Entry";
-	//deleteLink.addEventListener("click", deleteEntry);
+	deleteLink.addEventListener("click", deleteEntry);
 	deleteLink.innerHTML = deleteLinkText;
 	newLink.appendChild(deleteLink);
 }
@@ -238,7 +236,7 @@ function editEntry() {
 	var objValue = localStorage.getItem(this.key);
 	var tempObj = JSON.parse(objValue);
 
-	//obviate form
+	//show form
 	controlMenu("off");
 
 	//re-populate the form with the new extraction	
@@ -248,23 +246,97 @@ function editEntry() {
 	getElement("lengthItem").value = tempObj.lengthItem[1];	
 	getElement("pubDate").value = tempObj.pubDate[1];	
 	getElement("purchaseDate").value = tempObj.purchaseDate[1];	
-	var tempRadios = document.forms[0].securityCopy;	
-	for(var i = 0, j = tempRadios.length; i < j; i++) {
-		
-		if(tempRadios[i].value === "Yes" && tempObj.bkCopy[i] === "Yes") {
-			tempRadios[i].setAttribute("checked", "checked");		
-		}
-		else if(tempRadios[i].value === "No" && tempObj.bkCopy[i] === "No") {
-			tempRadios[i].setAttribute("checked", "checked");	
-		}
-	}
-
+	
+	//favorite entry goes here
 	if (tempObj.favOpt[1] === "Yes") {
 		getElement("favCheck").setAttribute("checked", "checked");
 	}
+
+	//radio "yes" -- "no" goes here
+	var tempRadios = document.forms[0].securityCopy;	
+	console.log(tempRadios);
+	for(var i = 0, j = tempRadios.length; i < j; i++) {
+		
+		if(tempRadios[i].value === "Yes" && tempObj.bkCopy[1] === "Yes") {
+			tempRadios[i].setAttribute("checked", "checked");		
+		}
+		else if(tempRadios[i].value === "No" && tempObj.bkCopy[1] === "No") {
+			tempRadios[i].setAttribute("checked", "checked");	
+		}
+	}
 	getElement("slider").value = tempObj.slideRange[1];	
 	getElement("notes").value = tempObj.notes[1];
+	
+	//Remove event listener from the save input button
+	submitButton.removeEventListener("click", storeData);
+	
+	//Change Submit Entry to Edit Entry
+	getElement("submitButton").value = "Edit Entry";
+	
+	//Catch the submit button into a new handel	
+	var editSubmitButton = getElement("submitButton");
+	
+	//Re-assign a new event listener for the new handle with a new function  -->"validate"	
+	editSubmitButton.addEventListener("click", formValidate);
+	
+	//Established relationship between the button and the current key we are editing ...	
+	editSubmitButton.key = this.key;
+
 }
+
+function deleteEntry() {
+	
+	//stuff goes here
+}
+
+//function formValidate
+function formValidate(e) {
+	//Input Handles
+	var entryName = getElement("nameItem");
+	var entryGenre = getElement("genreItem");
+	
+	//reset error messages
+	errMsg.innerHTML = "";
+	entryName.style.border = "1px solid black";
+	entryGenre.style.border = "1px solid black";
+	
+	//error array 	
+	var errorArray = [];
+	
+	//entry name validation
+	if (entryName.value == "") {
+		var entryNError = "Please insert a name for entry.";
+		entryName.style.border = "1px solid red";
+		errorArray.push(entryNError);
+	}
+
+	//entry genre validation
+	if (entryGenre.value == "") {
+		var entryGError = "Please insert a genre/type for this entry.";
+		entryGenre.style.border = "1px solid red";
+		errorArray.push(entryGError);
+	}
+	
+
+	//if errors display them
+	if (errorArray.length >= 1) {
+		for (var i = 0, j = errorArray.length; i < j; i++) {
+			var errorTxt = document.createElement('li');
+			errorTxt.innerHTML = errorArray[i];
+			errorTxt.style.color = "red";
+			errMsg.appendChild(errorTxt);		
+		}
+	e.preventDefault();
+	return false;	
+	}
+	
+	else {
+		storeData();	
+	}
+
+}
+
+
 //function clearLocal
 function clearLocal() {
 	var lengthLocalSt = localStorage.length;
@@ -280,6 +352,11 @@ function clearLocal() {
 	}
 }
 
+//global variables
+var radioChecked,	
+	 favCheck,
+	 errMsg = getElement("errorMessages");
+	 
 //display-link goes here
 var displayLink = getElement("displayData");
 displayLink.addEventListener("click", getData);
@@ -290,6 +367,6 @@ clearData.addEventListener("click", clearLocal);
 
 //submit-button goes here
 var submitButton = getElement("submitButton");
-submitButton.addEventListener("click", storeData); 
+submitButton.addEventListener("click", formValidate); 
 	
-//console.log(localStorage);
+
