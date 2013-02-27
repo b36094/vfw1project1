@@ -6,30 +6,30 @@
 //Create an Object with Objects
 var json = {
 
-   "entry1":{
-       "mediaType":	["Item Type: ", "Audio Cd"],
-       "nameItem":	["Name: ", "Love is Perfect"],
-       "genreItem":	["Genre/Type: ", "Disco"],
+   "item1":{
+       "dropMenu":		["Item Type: ", "Audio Cd"],
+       "nameItem":		["Name: ", "Love is Perfect"],
+       "genreItem":		["Genre/Type: ", "Disco"],
        "lengthItem":	["Length: ", "60"],
-       "pubDate":	["Release Date: ", "02-02-1999"],
+       "pubDate":		["Release Date: ", "02-02-1999"],
        "purchaseDate":	["Purchase Date: ", "11-11-2001"],
-       "favCheck":	["Is it a favorite item ?", "Yes"],
-       "radioChecked":	["Does the item have a back-up copy ?", "No"],
-       "slider":	["Next Revision (in months): ", "4"],
-       "notes":		["Notes: ", "This is a cd."]
+       "favOpt":		["Is it a favorite item ?", "Yes"],
+       "bkCopy":		["Does the item have a back-up copy ?", "No"],
+       "slideRange":	["Next Revision (in months): ", "4"],
+       "notes":			["Notes: ", "This is a cd."]
    },
    
-   "entry2":{
-       "mediaType":	["Item Type: ", "Audio Cd"],
-       "nameItem":	["Name: ", "Love is Perfect"],
-       "genreItem":	["Genre/Type: ", "Disco"],
-       "lengthItem":	["Length: ", "60"],
-       "pubDate":	["Release Date: ", "02-02-1999"],
-       "purchaseDate":	["Purchase Date: ", "11-11-2001"],
-       "favCheck":	["Is it a favorite item ?", "Yes"],
-       "radioChecked":	["Does the item have a back-up copy ?", "No"],
-       "slider":	["Next Revision (in months): ", "4"],
-       "notes":		["Notes: ", "This is a cd."]
+   "item2":{
+       "dropMenu":		["Item Type: ", "Video Dvd"],
+       "nameItem":		["Name: ", "Shoot Me Now"],
+       "genreItem":		["Genre/Type: ", "Action"],
+       "lengthItem":	["Length: ", "190"],
+       "pubDate":		["Release Date: ", "02-02-1999"],
+       "purchaseDate":	["Purchase Date: ", "11-11-2004"],
+       "favOpt":		["Is it a favorite item ?", "Yes"],
+       "bkCopy":		["Does the item have a back-up copy ?", "No"],
+       "slideRange":	["Next Revision (in months): ", "4"],
+       "notes":			["Notes: ", "This is a Dvd."]
    }
 }
 

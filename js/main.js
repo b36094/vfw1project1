@@ -125,13 +125,13 @@ function storeData(key) {
 	var item 				= 		{};
 	item.dropMenu 			= 		["Item Type: ", getElement("mediaType").value];
 	item.nameItem 			= 		["Name: ", getElement("nameItem").value];
-	item.genreItem 		= 		["Genre/Type: ", getElement("genreItem").value];
+	item.genreItem 			= 		["Genre/Type: ", getElement("genreItem").value];
 	item.lengthItem 		= 		["Length: ", getElement("lengthItem").value];
 	item.pubDate			=	 	["Release Date: ", getElement("pubDate").value];
-	item.purchaseDate 	= 		["Purchase Date: ", getElement("purchaseDate").value];
+	item.purchaseDate 		= 		["Purchase Date: ", getElement("purchaseDate").value];
 	item.favOpt 			= 		["Is it a favorite item ?", favCheck]; 
 	item.bkCopy 			= 		["Does the item have a back-up copy ?", radioChecked];
-	item.slideRange		=		["Next Revision (in months): ", getElement("slider").value]
+	item.slideRange			=		["Next Revision (in months): ", getElement("slider").value]
 	item.notes 				= 		["Notes: ", getElement("notes").value];
 	
 	//store into localStore
