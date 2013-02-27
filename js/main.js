@@ -225,7 +225,7 @@ function appendImage(picName, newSubUl) {
 	var imageLi = document.createElement('li');
 	newSubUl.appendChild(imageLi);
 	var newImg = document.createElement('img');
-	var setSrc = newImg.setAttribute('src', '/images/'+ picName +'.png');
+	var setSrc = newImg.setAttribute("src", "images/"+ picName +".png");
 	imageLi.appendChild(newImg);
 }
 

@@ -7,7 +7,7 @@
 var json = {
 
    "item1":{
-       "dropMenu":		["Item Type: ", "Audio Cd"],
+       "dropMenu":		["Item Type: ", "AudioCd"],
        "nameItem":		["Name: ", "Love is Perfect"],
        "genreItem":		["Genre/Type: ", "Disco"],
        "lengthItem":	["Length: ", "60"],
@@ -20,7 +20,7 @@ var json = {
    },
    
    "item2":{
-       "dropMenu":		["Item Type: ", "Video Dvd"],
+       "dropMenu":		["Item Type: ", "VideoDvd"],
        "nameItem":		["Name: ", "Shoot Me Now"],
        "genreItem":		["Genre/Type: ", "Action"],
        "lengthItem":	["Length: ", "190"],
