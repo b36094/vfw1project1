@@ -202,6 +202,7 @@ function getData() {
 		newSubUl.setAttribute("id", "dynamicLi");
 		newSubUl.setAttribute("style", "margin-top: 20px;")
 		newLi.appendChild(newSubUl);
+		
 		//function appendImage
 		appendImage(newObj.dropMenu[1], newSubUl);		
 		for (var o in newObj) {
@@ -216,6 +217,9 @@ function getData() {
 		
 		//call makeCtrlLinks function
 		makeCtrlLinks(localStorage.key(i), newLink);
+		//append a separation bar
+		var sepBar = document.createElement('hr');
+		newSubUl.appendChild(sepBar);
 	}
 }
 
