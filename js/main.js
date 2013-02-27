@@ -166,15 +166,18 @@ function controlMenu(a) {
 	}
 }
 
+
+
 //function getData
 function getData() {
 	//call function controlMenu
 	controlMenu("on");	
 	
 	if (localStorage.length === 0) {
-		alert("There is no data in the Local Storage.");
+		alert("There is no data in the Local Storage. Default data was added.");
+		autoPopulate();
 		//window.location = "additem.html";	
-		window.location.reload();
+		//window.location.reload();
 	}	
 	//Write Data Back to the browser 
 	var newDiv = document.createElement('div');	
@@ -215,6 +218,18 @@ function getData() {
 	}
 }
 
+
+//function autoPopulate goes here
+function autoPopulate() {
+	
+	for (var n in json) {
+		
+		var id = Math.floor(Math.random() * 10000001);
+		localStorage.setItem (id, JSON.stringify(json[n]));
+	}
+}
+
+
 //function makeCtrlLinks
 function makeCtrlLinks(key, newLink) {
 	
@@ -242,7 +257,6 @@ function makeCtrlLinks(key, newLink) {
 function editEntry() {
 	var objValue = localStorage.getItem(this.key);
 	var tempObj = JSON.parse(objValue);
-	console.log(objValue);
 	//show form
 	controlMenu("off");
 
