@@ -30,11 +30,11 @@ function addMenu() {
 	//array with optGroup names
 	var optGroupList = ["Video", "Audio", "Data"];
 	//array with videoGroupList
-	var videoGroupList = ["Video Dvd", "Video Cd", "Video Tape"];
+	var videoGroupList = ["VideoDvd", "VideoCd", "VideoTape"];
 	//array with audioGroupList
-	var audioGroupList = ["Audio Cd", "Audio Tape", "Audio Record"];
+	var audioGroupList = ["AudioCd", "AudioTape", "AudioRecord"];
 	//array with dataGroupList
-	var dataGroupList = ["Data Dvd", "Data Cd", "Memory Stick", "Other"];	
+	var dataGroupList = ["DataDvd", "DataCd", "MemoryStick", "Other"];	
 
 		for (var i = 0, j = optGroupList.length; i < j; i++) {
 			var optGroupMenu = document.createElement("optgroup");
@@ -202,7 +202,8 @@ function getData() {
 		newSubUl.setAttribute("id", "dynamicLi");
 		newSubUl.setAttribute("style", "margin-top: 20px;")
 		newLi.appendChild(newSubUl);
-				
+		//function appendImage
+		appendImage(newObj.dropMenu[1], newSubUl);		
 		for (var o in newObj) {
 			
 			var newSubLi = document.createElement('li');
@@ -218,6 +219,15 @@ function getData() {
 	}
 }
 
+//function appendImage finds the right image in the "images" folder and appends it to the proper category
+function appendImage(picName, newSubUl) {
+	
+	var imageLi = document.createElement('li');
+	newSubUl.appendChild(imageLi);
+	var newImg = document.createElement('img');
+	var setSrc = newImg.setAttribute('src', '/images/'+ picName +'.png');
+	imageLi.appendChild(newImg);
+}
 
 //function autoPopulate goes here
 function autoPopulate() {
